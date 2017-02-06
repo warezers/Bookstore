@@ -6,13 +6,13 @@
   <div class="books-show-right">
     <h3>Book Info<h3>
       <ul>
-        <li><strong>Category:</strong>　<%= @book.category.name %></li>
-        <li><strong>Author:</strong><%= @book.author.first_name%>　<%= @book.author.last_name%></li>
-        <li><strong>publisher:</strong><%= @book.publisher.name%></li>
-        <li><strong>year:</strong> <%= @book.year%></li>
-        <li><strong>Isbn:</strong><%= @book.isbn%></li>
-        <li><strong>Format:</strong><%= @book.format %></li>
-        <li><strong>Pages:</strong><%= @book.pages%></li>
+        <li><strong>Category:</strong>　<%= @book.category.name if @book.category %></li>
+        <li><strong>Author:</strong><%= @book.author.first_name if @book.author %>　<%= @book.author.last_name if @book.author %></li>
+        <li><strong>publisher:</strong><%= @book.publisher.name if @book.publisher %></li>
+        <li><strong>year:</strong> <%= @book.year if @book.year if @book.year %></li>
+        <li><strong>Isbn:</strong><%= @book.isbn if @book.isbn  if @book.isbn %></li>
+        <li><strong>Format:</strong><%= @book.format if @book.format %></li>
+        <li><strong>Pages:</strong><%= @book.pages if @book.pages %></li>
       </ul>
       <%= link_to "Buy For " +@book.price, @book.buy,
         class:'btn btn-primary',target:'_blank'%>
