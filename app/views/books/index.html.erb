@@ -1,48 +1,14 @@
 
 <div id="books-index">
-  <div class="row">
-    <div class="col-md-3 col-sm-3">
-      <h3>ruby on rails</h3>
-      <%= image_tag('covers/ruby_rails.jpg')%>
-      <%= link_to 'Read More',book_path(1), class:'btn btn-primary'%>
+  <% @books.each_slice(4) do |book| %>
+    <div class="row">
+      <% book.each do |book| %>
+        <div class="col-md-3 col-sm-3">
+        <h3><%= book.title%></h3>
+        <%= image_tag(book.coverpath)if book.coverpath.presence %>
+        <%= link_to 'Read More',book_path(book), class:'btn btn-primary'%>
+        </div>
+      <% end %>
     </div>
-    <div class="col-md-3 col-sm-3">
-      <h3>Ajex Rails</h3>
-      <%= image_tag('covers/ajex_rails.jpg')%>
-      <%= link_to 'Read More',book_path(1), class:'btn btn-primary'%>
-    </div>
-    <div class="col-md-3 col-sm-3">
-      <h3>Php Cook</h3>
-      <%= image_tag('covers/php_cook.jpg')%>
-      <%= link_to 'Read More',book_path(1), class:'btn btn-primary'%>
-    </div>
-    <div class="col-md-3 col-sm-3">
-      <h3>ruby power</h3>
-      <%= image_tag('covers/ruby_power.jpg')%>
-      <%= link_to 'Read More',book_path(1), class:'btn btn-primary'%>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3 col-sm-3">
-      <h3>html css1</h3>
-      <%= image_tag('covers/html_css1.jpg')%>
-      <%= link_to 'Read More',book_path(1), class:'btn btn-primary'%>
-    </div>
-    <div class="col-md-3 col-sm-3">
-      <h3>html css2</h3>
-      <%= image_tag('covers/html_css2.jpg')%>
-      <%= link_to 'Read More',book_path(1), class:'btn btn-primary'%>
-    </div>
-    <div class="col-md-3 col-sm-3">
-      <h3>rails 3way</h3>
-      <%= image_tag('covers/rails_3way.jpg')%>
-      <%= link_to 'Read More',book_path(1), class:'btn btn-primary'%>
-    </div>
-    <div class="col-md-3 col-sm-3">
-      <h3>Html5</h3>
-      <%= image_tag('covers/html5.jpg')%>
-      <%= link_to 'Read More',book_path(1), class:'btn btn-primary'%>
-    </div>
-  </div>
-
+  <% end %>
 </div>
